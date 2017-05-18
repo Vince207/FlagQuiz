@@ -301,6 +301,7 @@ public class MainActivityFragment extends Fragment {
             // display correct answer in green text
             answerTextView.setText(answer + "!");
             answerTextView.setTextColor(getResources().getColor(R.color.correct_answer, getContext().getTheme()));
+            guessButton.startAnimation(shakeAnimation);
 
             disableButtons(); // disable all guess Buttons
 
@@ -351,7 +352,6 @@ public class MainActivityFragment extends Fragment {
          { // answer was incorrect
              MediaPlayer crash = MediaPlayer.create(getActivity(), R.raw.crash);
              crash.start();
-            guessButton.startAnimation(shakeAnimation);
             // display "Incorrect!" in red
             Toast.makeText(getActivity(), "WRONG!", Toast.LENGTH_SHORT).show();
             answerTextView.setTextColor(getResources().getColor(R.color.incorrect_answer, getContext().getTheme()));
